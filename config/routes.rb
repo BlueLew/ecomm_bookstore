@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users
+  get 'users/show'
+  get 'users/update'
+  get 'users/edit'
+  root to: "books#index"
   get 'sales/index'
   get 'sales/show'
   get 'sales/new'
