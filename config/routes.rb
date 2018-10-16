@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'styleguide/index'
   devise_for :users
   get 'users/show'
   get 'users/update'
