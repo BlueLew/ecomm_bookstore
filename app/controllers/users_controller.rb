@@ -6,5 +6,13 @@ class UsersController < ApplicationController
   end
 
   def edit
+    current_user.name = params[:user][:name]
+
+    if current_user.save
+      redirect_to user_path
+    else
+      render :edit
+    end
   end
+
 end
