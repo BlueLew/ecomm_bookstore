@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  get 'styleguide/index'
+  get 'styleguide/index', to: 'styleguide#index'
   devise_for :users
   get 'users/show'
   get 'users/update'
   get 'users/edit'
   root to: "books#index"
-  get 'sales/index'
-  get 'sales/show'
-  get 'sales/new'
-  get 'sales/create'
+  resources :books, only: :show do
+    resources :sales, only: [:new, :create]
+  end
+
+  get '/sales', to: 'sales#index'
   get 'authors/index'
   get 'authors/show'
   get 'authors/create'
