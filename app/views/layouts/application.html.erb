@@ -17,11 +17,13 @@
             <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
           </li>
           <li class="c-navigation__item">
-            <%= link_to "Authors", authors_path, class: "c-navigation__link" %>
+            <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
           </li>
           <% if current_user %>
             <li class="c-navigation__item c-navigation__item--push-right">
               Welcome to Lex Publishing, <%= current_user.name %>!
+            </li>
+            <li class="c-navigation__item c-navigation__item--push-right"><%= link_to "Edit Profile", edit_user_registration_path %>
             </li>
           <% else %>
             <li class="c-navigation__item c-navigation__item--push-right">
@@ -45,7 +47,7 @@
             <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
           </li>
           <li class="c-navigation__item">
-            <%= link_to "Authors", authors_path, class: "c-navigation__link" %>
+            <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
           </li>
           <% if current_user %>
             <li class="c-navigation__item c-navigation__item--push-right">

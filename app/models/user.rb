@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :sales
   has_many :books, through: :sales
+
+  has_one_attached :avatar
 end
