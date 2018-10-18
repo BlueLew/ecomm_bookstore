@@ -1,2 +1,10 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<div class="c-section">
+  <h1 class="c-title c-title--large"><%= @book.title %></h1>
+  <h4 class="c-title">by <%= @author.name %></h4>
+  <h4 class="c-title">$<%= @book.price %></h4>
+  <%= link_to "Buy this book!", new_book_sale_path(@book), class: "c-button c-button--focal" %>
+</div>
+<div class="c-section">
+  <h3 class="c-title c-title--small">About this book</h3>
+  <p class="c-paragraph"><%= @book.content %></p>
+</div>

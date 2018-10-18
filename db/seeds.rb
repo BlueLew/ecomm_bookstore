@@ -1,15 +1,24 @@
-# User.create!(name: "Lewis", email: "lewis@bookstore.dev", password: "testing1")
+ActiveRecord::Base.transaction do
+  User.create!(name: "Lewis", email: "lewis@bookstore.dev", password: "testing1")
+  
+  books = [
+    { title: "The Screwtape Letters", price: 10.99 },
+    { title: "Mere Christianity", price: 9.89 },
+    { title: "The Problem of Pain", price: 11.89 },
+    { title: "The Lion, the Witch, and the Wardrobe", price: 16.99 }
+  ]
 
-# cs_lewis = User.create!(name: "C.S. Lewis", email: "cslewis@cslewis.dev", password: "testing1")
+  author = Author.create(name:"C.S. Lewis")
+  content = Book.create(content:"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+  quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+  consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+  cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+  proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
 
-books = [
-  { title: "The Screwtape Letters", author_id: 1, price: 10.99 },
-  { title: "Mere Christianity", author_id: 1, price: 9.89 },
-  { title: "The Problem of Pain", author_id: 1, price: 11.89 },
-  { title: "The Lion, the Witch, and the Wardrobe", author_id: 1, price: 16.99 }
-]
-books.each do |book|
-  Book.create!(title: book[:title], price: book[:price])
+  books.each do |book|
+    Book.create!(title: book[:title], price: book[:price], author: author, content: content)
+  end
 end
 
 # Examples:

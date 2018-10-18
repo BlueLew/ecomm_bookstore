@@ -2,10 +2,10 @@ class UsersController < ApplicationController
   def show
   end
 
-  def update
+  def edit
   end
 
-  def edit
+  def update
     current_user.name = params[:user][:name]
 
     if current_user.save
