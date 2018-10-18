@@ -1,6 +1,6 @@
 class SalesController < ApplicationController
   before_action :authenticate_user!
-  before_action :load_book
+  before_action :load_book, except: :index
 
   def index
     @sales = current_user.sales
