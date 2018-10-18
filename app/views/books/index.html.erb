@@ -6,9 +6,7 @@
     <div class="c-card u-margin-bottom-small">
       <div class="c-section">
         <h2 class="c-title"><%= book.title %></h2>
-        <% @authors.each do |author| %>
-        <h3 class="c-title c-title--tiny">by <%= author.name%></h3>
-        <% end %>
+        <h3 class="c-title c-title--tiny">by <%= book.author.name %></h3>
         <h4 class="c-title c-title--tiny">$<%= book.price %></h4>
         <%= link_to "More Info", book_path(book), class: "c-button c-button--small c-button--focal"%>
       </div>
