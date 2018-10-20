@@ -24,6 +24,7 @@
             </li>
             <li class="c-navigation__item c-navigation__item--push-right">  
               Welcome, <%= current_user.name %>!
+              <%= link_to "Purchase History", sales_path, class: "c-link" %>
               <%= link_to "Edit Profile", edit_user_registration_path, class: "c-link" %>
               <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "c-link") %>
             </li>
