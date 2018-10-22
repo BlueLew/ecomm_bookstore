@@ -1,8 +1,12 @@
 <div class="c-section">
-  <h4 class="c-title">
-    <%= form_for current_user do |form| %>
-    Name: <%= f.text_field :name %>
-    <%= f.submit %>
-    <% end %>
-  </h4>
+  <h1 class="c-title c-title--large">Edit Your Profile</h1>
+    <div class="c-section">
+      <h4 class="c-title">
+        <%= form_for current_user do |f| %>
+        Name: <%= f.text_field :name %><br><br>
+        Avatar: <%= f.file_field :avatar %><br><br>
+        <%= f.submit %>
+        <% end %>
+      </h4>
+    </div>
 </div>

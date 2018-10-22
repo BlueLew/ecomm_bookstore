@@ -9,4 +9,5 @@ class Book < ApplicationRecord
   def stripe_amount
     (price * 100).to_i
   end
+  
 end

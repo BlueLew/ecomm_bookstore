@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  get 'users/show'
-  get 'users/update'
-  get 'users/edit'
+
+  resources :users, only: [:show, :edit, :update]
   root to: "books#index"
   resources :books, only: :show do
     resources :sales, only: [:new, :create]
