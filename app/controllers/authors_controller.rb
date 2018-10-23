@@ -2,10 +2,10 @@ class AuthorsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @authors = Author.all
+    @authors = User.where(author: true)
   end
 
   def show
-    @author = Author.find(params[:id])
+    @author = User.find(params[:id])
   end
 end

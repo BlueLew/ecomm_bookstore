@@ -1,5 +1,17 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.all
+  end
+
+  def authors
+    #@authors = User.author.all
+  end
+
   def show
+    @current_page = params[:page] || 1
+    @users = User.page(@current_page)
+    @prev_page = User.page(@current_page).prev_page
+    @next_page = User.page(@current_page).next_page
   end
 
   def edit
