@@ -7,6 +7,7 @@
       <div class="c-section">
         <h2 class="c-title"><%= book.title %></h2>
         <h3 class="c-title c-title--tiny">by <%= book.author.name %></h3>
+        <%# image_tag book.image.variant(resize: "150x200") %>
         <h4 class="c-title c-title--tiny">$<%= book.price %></h4>
         <%= link_to "More Info", book_path(book), class: "c-button c-button--small c-button--focal"%>
       </div>
