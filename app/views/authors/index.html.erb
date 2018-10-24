@@ -8,9 +8,12 @@
         <h2 class="c-title c-title--large"><%= author.name %></h2>
         <h2 class="c-title">Books written by this author: </h2>
         <% author.books.each do |book| %>
-          <h2 class="c-title"><%= book.title %></h2>
+          <h2 class="c-title"><%= author.book.title %></h2>
         <% end %>
       </div>
     </div>
   <% end %>
+  <%= paginate @authors %>
 </div>
+
+
