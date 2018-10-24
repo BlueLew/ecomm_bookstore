@@ -7,9 +7,68 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+    <%= javascript_pack_tag 'application' %>
+    <%= stylesheet_pack_tag 'application' %>
+    <script src="https://js.stripe.com/v3/"></script>
 
-  <body>
-    <%= yield %>
-  </body>
+  </head>
+  <div class="c-container-page">
+    <header>
+      <div class="c-section">
+        <h1 class="c-title c-title--large">Lex Publishing</h1>
+        <ul class="c-navigation">
+          <li class="c-navigation__item">
+            <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
+          </li>
+          <li class="c-navigation__item">
+            <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
+          </li>
+          <% if current_user %>
+            </li>
+            <li class="c-navigation__item c-navigation__item--push-right">  
+              Welcome, <%= current_user.name %>!
+              <%= link_to "Purchase History", sales_path, class: "c-link" %>
+              <% if current_user %>
+                <%= link_to "Edit Profile", edit_user_path(current_user), class: "c-link" %>
+              <% end %>
+              <%= link_to("Logout", destroy_user_session_path, method: :delete, class: "c-link") %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+
+              <%= link_to "Log In", new_user_session_path, class: "c-navigation__link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "c-navigation__link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <body>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= yield %>
+    </body>
+    <footer>
+      <div class="c-section">
+        <h1 class="c-title">Lex Publishing</h1>
+        <ul class="c-navigation">
+          <li class="c-navigation__item">
+            <%= link_to "Books", root_path, class: "c-navigation__link c-navigation__link--active" %>
+          </li>
+          <li class="c-navigation__item">
+            <%= link_to "Authors", authors_path, class: "c-navigation__link c-navigation__link--active" %>
+          </li>
+          <% if current_user %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+              Logged in as <%= current_user.email %>
+            </li>
+          <% else %>
+            <li class="c-navigation__item c-navigation__item--push-right">
+
+              <%= link_to "Log In", new_user_session_path, class: "c-navigation__link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "c-navigation__link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </footer>
+  </div>
 </html>

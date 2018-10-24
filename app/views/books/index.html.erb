@@ -1,2 +1,17 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<div class="c-section">
+  <h2 class="c-title c-title--large">Browse Our Books</h2>
+</div>
+<div class="c-section">
+  <% @books.each do |book| %>
+    <div class="c-card u-margin-bottom-small">
+      <div class="c-section">
+        <h2 class="c-title"><%= book.title %></h2>
+        <h3 class="c-title c-title--tiny">by <%= book.author.name %></h3>
+        <%# image_tag book.image.variant(resize: "200x300") %>
+        <h4 class="c-title c-title--tiny">$<%= book.price %></h4>
+        <%= link_to "More Info", book_path(book), class: "c-button c-button--small c-button--focal"%>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @books %>
+</div>

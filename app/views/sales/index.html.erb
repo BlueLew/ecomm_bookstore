@@ -1,2 +1,16 @@
-<h1>Sales#index</h1>
-<p>Find me in app/views/sales/index.html.erb</p>
+<div class="c-section">
+  <h1 class="c-title c-title--large">Purchase History for <%= current_user.name %>, (<%= current_user.email %>)</h1>
+</div>
+<div class="c-section">
+  <% @sales.each do |sale| %>
+    <div class="c-card u-margin-bottom-small">
+      <div class="c-section">
+        <h2 class="c-title"><%= sale.created_at.strftime("Purchased on %m/%d/%Y") %></h2>
+        <h2 class="c-title"><%= sale.book.title %> by <%= sale.book.author.name %></h2>
+        <h3 class="c-title">Amount paid was $<%= sale.book.price %></h3>
+        </h4>
+        <%= link_to "Download", sales_path, class: "c-button c-button--small c-button--focal"%>
+      </div>
+    </div>
+  <% end %>
+</div>

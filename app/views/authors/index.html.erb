@@ -1,2 +1,19 @@
-<h1>Authors#index</h1>
-<p>Find me in app/views/authors/index.html.erb</p>
+<div class="c-section">
+  <h2 class="c-title c-title--large">Authors</h2>
+</div>
+<div class="c-section">
+  <% @authors.each do |author| %>
+    <div class="c-card u-margin-bottom-small">
+      <div class="c-section">
+        <h2 class="c-title c-title--large"><%= author.name %></h2>
+        <h2 class="c-title">Books written by this author: </h2>
+        <% author.books.each do |book| %>
+          <h2 class="c-title"><%= book.title %></h2>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  <%= paginate @authors %>
+</div>
+
+
