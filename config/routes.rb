@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   devise_for :users
 
@@ -10,6 +11,9 @@ Rails.application.routes.draw do
   get 'authors', to: 'authors#index'
   get 'authors/show'
   get 'authors/create'
+  get 'admin/authors'
+  get 'admin/books'
+    mount Sidekiq::Web => '/sidekiq'
   get 'styleguide', to: 'styleguide#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
