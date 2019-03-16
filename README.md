@@ -1,6 +1,6 @@
 # Lex Publishing
 
-Lex Publishing is an e-commerce bookstore, which was a project for the Carolina Code School:
+Lex Publishing is an e-commerce bookstore.
 
 Technology Stack:
 * HTML
